@@ -54,7 +54,7 @@ export function HomeClient({
     <main className="student-skin landing-skin relative min-h-dvh overflow-x-hidden bg-[#06140f] text-paper">
       <AuroraBackground />
 
-      <div className="relative z-10 mx-auto flex min-h-dvh max-w-xl flex-col px-5 pb-10 pt-7">
+      <div className="relative z-10 mx-auto flex min-h-dvh w-full max-w-5xl flex-col px-5 pb-10 pt-7">
         {/* Brand + sign out */}
         <header className="animate-fade-up flex items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
@@ -96,11 +96,12 @@ export function HomeClient({
         {/* Skill level — Elo-based, motivating, no raw rank ladder */}
         {rating && <LevelCard rating={rating} />}
 
-        {/* SynapTest practice — self-practice over the global bank */}
-        <section className="animate-fade-up mt-4" style={{ animationDelay: "90ms" }}>
+        {/* Quick actions — practice + progress (side by side on laptop) */}
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
           <Link
             href="/practice"
-            className="card-glass group flex items-center gap-3 p-4 transition hover:-translate-y-0.5 hover:bg-white/[0.08]"
+            className="card-glass animate-fade-up group flex items-center gap-3 p-4 transition hover:-translate-y-0.5 hover:bg-white/[0.08]"
+            style={{ animationDelay: "90ms" }}
           >
             <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-energy text-focusink shadow-[0_0_18px_-4px_rgba(0,224,184,0.7)]">
               <Dumbbell className="h-5 w-5" />
@@ -108,12 +109,31 @@ export function HomeClient({
             <div className="min-w-0 flex-1">
               <p className="font-display font-bold text-paper">Practice anytime</p>
               <p className="text-xs text-paper/55">
-                Lesson-by-lesson tests &amp; full NEET mocks from SynapTest
+                Lesson-by-lesson tests &amp; full NEET mocks
               </p>
             </div>
             <ArrowRight className="h-5 w-5 shrink-0 text-energy transition group-hover:translate-x-0.5" />
           </Link>
-        </section>
+
+          {rating && (
+            <Link
+              href="/progress"
+              className="card-glass animate-fade-up group flex items-center gap-3 p-4 transition hover:-translate-y-0.5 hover:bg-white/[0.08]"
+              style={{ animationDelay: "100ms" }}
+            >
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-energy/15 text-energy">
+                <LineChart className="h-5 w-5" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="font-display font-bold text-paper">Your progress</p>
+                <p className="text-xs text-paper/55">
+                  Rating trend, strongest &amp; weakest lessons
+                </p>
+              </div>
+              <ArrowRight className="h-5 w-5 shrink-0 text-energy transition group-hover:translate-x-0.5" />
+            </Link>
+          )}
+        </div>
 
         {/* Headline */}
         <section className="animate-fade-up mt-7" style={{ animationDelay: "120ms" }}>
@@ -158,9 +178,9 @@ export function HomeClient({
               </div>
             </div>
           ) : (
-            <div className="grid gap-3">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {mocks.map((m) => (
-                <div key={m.id} className="card-glass p-4">
+                <div key={m.id} className="card-glass flex flex-col p-4">
                   <div className="flex items-start gap-3">
                     <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-energy/15 text-energy">
                       <BookOpen className="h-5 w-5" />
@@ -180,7 +200,7 @@ export function HomeClient({
                     </div>
                   </div>
 
-                  <div className="mt-3 flex items-center gap-2">
+                  <div className="mt-auto flex items-center gap-2 pt-3">
                     {m.attemptCount >= m.maxAttempts && m.attemptCount > 0 ? (
                       <div className="flex flex-1 items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-paper/40">
                         <Lock className="h-4 w-4" /> Completed
