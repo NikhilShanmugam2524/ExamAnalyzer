@@ -14,6 +14,7 @@ import {
   type ClimbQuestion,
 } from "@/lib/db/practice";
 import { getMockWithQuestions, createAttempt, saveAttempt } from "@/lib/db/queries";
+import { applyRatingUpdates } from "@/lib/db/ratings";
 import { buildReport } from "@/lib/grade";
 import { SUBJECTS } from "@/lib/questions/validate";
 import type { Attempt, Difficulty, Subject } from "@/lib/types";
@@ -82,6 +83,15 @@ export async function finishClimbRun(
       maxMarks: report.maxScore,
       accuracy: report.accuracyPct,
     });
+
+    // Update skill ratings from this run. Best-effort: a rating failure must
+    // never fail the run or block the report.
+    try {
+      await applyRatingUpdates(attemptId, student.id, report.items);
+    } catch (err) {
+      console.error("Rating update failed for climb attempt", attemptId, err);
+    }
+
     return { attemptId };
   } catch (e) {
     return { error: (e as Error).message };
