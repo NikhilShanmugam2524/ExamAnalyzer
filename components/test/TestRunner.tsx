@@ -110,7 +110,7 @@ export function TestRunner({
 
   return (
     <div className="student-skin min-h-dvh bg-focusink text-paper">
-      <main className="mx-auto flex min-h-dvh max-w-xl flex-col px-5 pb-8 pt-6">
+      <main className="mx-auto flex min-h-dvh max-w-3xl flex-col px-5 pb-8 pt-6">
         {/* Top bar: progress + timer */}
         <div className="flex items-center justify-between gap-4">
           <div className="flex-1">

@@ -72,7 +72,7 @@ export default async function TeacherPage() {
     <main className="landing-skin relative min-h-dvh overflow-x-hidden bg-[#06140f] text-paper">
       <AuroraBackground />
 
-      <div className="relative z-10 mx-auto max-w-xl px-5 pb-10 pt-6">
+      <div className="relative z-10 mx-auto max-w-4xl px-5 pb-10 pt-6">
         <header className="animate-fade-up flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="grid h-10 w-10 place-items-center rounded-xl bg-teal-deep text-white shadow-[0_0_18px_-4px_rgba(0,224,184,0.5)]">

@@ -20,7 +20,7 @@ export default async function TeacherEditQuestionPage({
   const question = centreId ? await getQuestion(centreId, params.id) : null;
 
   return (
-    <main className="mx-auto min-h-dvh max-w-xl px-5 pb-14 pt-6">
+    <main className="mx-auto min-h-dvh max-w-2xl px-5 pb-14 pt-6">
       <header className="animate-fade-up flex items-center gap-3">
         <Link
           href="/teacher/questions"

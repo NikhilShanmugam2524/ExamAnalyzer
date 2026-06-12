@@ -26,7 +26,7 @@ export default async function EditGlobalQuestionPage({
     <main className="landing-skin relative min-h-dvh overflow-x-hidden bg-[#06140f] text-paper">
       <AuroraBackground />
 
-      <div className="relative z-10 mx-auto max-w-xl px-5 pb-10 pt-6">
+      <div className="relative z-10 mx-auto max-w-2xl px-5 pb-10 pt-6">
         <header className="animate-fade-up mb-6 flex items-center justify-between gap-3">
           <h1 className="font-display text-lg font-bold text-paper">Edit question</h1>
           <Link href="/admin/bank" className="btn-ghost-dark px-3 py-2 text-xs">

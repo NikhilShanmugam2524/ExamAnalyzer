@@ -42,7 +42,7 @@ export default async function AdminBankPage() {
     <main className="landing-skin relative min-h-dvh overflow-x-hidden bg-[#06140f] text-paper">
       <AuroraBackground />
 
-      <div className="relative z-10 mx-auto max-w-2xl px-5 pb-10 pt-6">
+      <div className="relative z-10 mx-auto max-w-4xl px-5 pb-10 pt-6">
         {/* Header */}
         <header className="animate-fade-up flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">

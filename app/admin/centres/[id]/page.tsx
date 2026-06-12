@@ -28,7 +28,7 @@ export default async function AdminCentreDetailPage({
 
   if (!centre) {
     return (
-      <main className="mx-auto min-h-dvh max-w-xl px-5 pb-14 pt-6">
+      <main className="mx-auto min-h-dvh max-w-4xl px-5 pb-14 pt-6">
         <div className="card p-5 text-sm text-ink/60">
           Centre not found.{" "}
           <Link href="/admin" className="font-semibold text-teal-deep hover:underline">
@@ -41,7 +41,7 @@ export default async function AdminCentreDetailPage({
   }
 
   return (
-    <main className="mx-auto min-h-dvh max-w-xl px-5 pb-14 pt-6">
+    <main className="mx-auto min-h-dvh max-w-4xl px-5 pb-14 pt-6">
       <header className="animate-fade-up flex items-center gap-3">
         <Link
           href="/admin"

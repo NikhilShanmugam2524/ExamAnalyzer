@@ -85,7 +85,7 @@ export default async function PracticePage({
     <main className="student-skin landing-skin relative min-h-dvh overflow-x-hidden bg-[#06140f] text-paper">
       <AuroraBackground />
 
-      <div className="relative z-10 mx-auto max-w-xl px-5 pb-12 pt-7">
+      <div className="relative z-10 mx-auto max-w-4xl px-5 pb-12 pt-7">
         {/* Header */}
         <header className="animate-fade-up flex items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">

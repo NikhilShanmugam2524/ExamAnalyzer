@@ -16,7 +16,7 @@ export default async function TeacherMocksPage() {
   const mocks = centreId ? await listMocksForCentre(centreId) : [];
 
   return (
-    <main className="mx-auto min-h-dvh max-w-xl px-5 pb-14 pt-6">
+    <main className="mx-auto min-h-dvh max-w-4xl px-5 pb-14 pt-6">
       <header className="animate-fade-up flex items-center gap-3">
         <Link
           href="/teacher"

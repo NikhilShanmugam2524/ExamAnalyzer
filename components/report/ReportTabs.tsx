@@ -50,7 +50,7 @@ export function ReportTabs({
 
   return (
     <main
-      className={`mx-auto min-h-dvh max-w-xl px-5 pb-10 pt-6 ${
+      className={`mx-auto min-h-dvh max-w-4xl px-5 pb-10 pt-6 ${
         warm
           ? "student-skin bg-[radial-gradient(120%_60%_at_50%_0%,rgba(0,224,184,0.12),transparent_60%)]"
           : ""

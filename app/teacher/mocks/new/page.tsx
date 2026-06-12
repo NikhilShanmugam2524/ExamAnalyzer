@@ -36,7 +36,7 @@ export default async function TeacherNewMockPage() {
   }));
 
   return (
-    <main className="mx-auto min-h-dvh max-w-xl px-5 pb-14 pt-6">
+    <main className="mx-auto min-h-dvh max-w-5xl px-5 pb-14 pt-6">
       <header className="animate-fade-up flex items-center gap-3">
         <Link
           href="/teacher/mocks"
