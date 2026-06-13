@@ -2,8 +2,9 @@
 
 import { useFormState, useFormStatus } from "react-dom";
 import Link from "next/link";
-import { BrainCircuit, LogIn, Loader2, Lock, Mail } from "lucide-react";
+import { LogIn, Loader2, Lock, Mail } from "lucide-react";
 import { login, type LoginState } from "@/app/login/actions";
+import { Logo } from "@/components/brand/Logo";
 
 const initial: LoginState = { error: null };
 
@@ -96,7 +97,7 @@ export function LoginFormBody({ state, formAction }: {
 }
 
 /**
- * Full-page login form with SynapTest branding header.
+ * Full-page login form with DriveScore branding header.
  * Used on standalone login pages (/teacher, /admin, /welcome inline).
  *
  * Pass `embedded={true}` to skip the page wrapper (min-h-dvh) and show just
@@ -114,18 +115,18 @@ export function LoginForm({
   const [state, formAction] = useFormState(login, initial);
 
   const header = (
-    <div className="animate-fade-up mb-8 flex items-center gap-3">
-      <div className="grid h-11 w-11 place-items-center rounded-2xl bg-teal text-white shadow-sm">
-        <BrainCircuit className="h-6 w-6" />
-      </div>
-      <div>
-        <h1 className="font-display text-xl font-bold tracking-tight text-ink">
-          SynapTest
-        </h1>
-        <p className="text-xs font-medium text-teal-deep">
-          Sign in to your account
-        </p>
-      </div>
+    <div className="animate-fade-up mb-8">
+      <Logo
+        size={44}
+        wordmarkClassName={`text-2xl ${theme === "dark" ? "text-paper" : "text-ink"}`}
+      />
+      <p
+        className={`mt-2.5 text-xs font-medium ${
+          theme === "dark" ? "text-energy" : "text-teal-deep"
+        }`}
+      >
+        Sign in to your account
+      </p>
     </div>
   );
 
@@ -139,7 +140,7 @@ export function LoginForm({
   const linkColor = theme === "dark" ? "text-energy" : "text-teal-deep";
   const note = (
     <p className={`animate-fade-up mt-5 text-center text-xs ${noteColor}`}>
-      New to SynapTest?{" "}
+      New to DriveScore?{" "}
       <Link href="/signup" className={`font-semibold ${linkColor} hover:underline`}>
         Create an account
       </Link>

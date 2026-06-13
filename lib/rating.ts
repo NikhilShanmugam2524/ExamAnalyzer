@@ -1,5 +1,5 @@
 /**
- * The Skill Rating Engine — SynapTest's fair, motivating skill measure.
+ * The Skill Rating Engine — DriveScore's fair, motivating skill measure.
  *
  * Pure, deterministic Elo over (question difficulty + correctness). No AI/LLM,
  * no DB, no React — kept dependency-free and isolated so it stays

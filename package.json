@@ -1,8 +1,8 @@
 {
-  "name": "synaptest",
+  "name": "DriveScore",
   "version": "0.1.0",
   "private": true,
-  "description": "SynapTest — a weekend mock-test & diagnosis PWA for NEET coaching centres.",
+  "description": "DriveScore — a weekend mock-test & diagnosis PWA for NEET coaching centres.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -3,7 +3,7 @@
  *
  * The teacher is the coaching centre's manager (the B2B buyer). Beyond managing
  * questions, mocks and students, this surfaces the class-level view of the skill
- * data SynapTest collects: headline stats, the "re-teach this week" weak-chapter
+ * data DriveScore collects: headline stats, the "re-teach this week" weak-chapter
  * list, a class leaderboard, and a per-student roster with level + activity.
  * All scoped to the teacher's own centre/batches by RLS.
  */
@@ -28,6 +28,7 @@ import { getTeacherClassInsights } from "@/lib/db/teacher";
 import { CreateStudentForm } from "@/components/admin/CreateStudentForm";
 import { LogoutButton } from "@/components/auth/LogoutButton";
 import { LoginForm } from "@/components/auth/LoginForm";
+import { Logo } from "@/components/brand/Logo";
 import { AuroraBackground } from "@/components/landing/AuroraBackground";
 import type { Subject } from "@/lib/types";
 
@@ -91,15 +92,10 @@ export default async function TeacherPage() {
       <main className="landing-skin relative flex min-h-dvh flex-col items-center justify-center bg-[#06140f] px-5 py-10">
         <AuroraBackground />
         <div className="relative z-10 w-full max-w-sm">
-          <div className="mb-8 flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-2xl bg-teal-deep text-white shadow-[0_0_20px_-4px_rgba(0,224,184,0.4)]">
-              <Stethoscope className="h-6 w-6" />
-            </div>
-            <div>
-              <h1 className="font-display text-xl font-bold tracking-tight text-paper">
-                Centre Manager
-              </h1>
-              <p className="text-xs font-medium text-energy">Sign in to your account</p>
+          <div className="mb-8">
+            <Logo size={44} wordmarkClassName="text-2xl text-paper" />
+            <div className="mt-3 flex items-center gap-1.5 text-xs font-medium text-energy">
+              <Stethoscope className="h-3.5 w-3.5" /> Centre Manager · sign in
             </div>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-1 backdrop-blur-sm">
@@ -134,9 +130,7 @@ export default async function TeacherPage() {
       <div className="relative z-10 mx-auto max-w-5xl px-5 pb-12 pt-6">
         <header className="animate-fade-up flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-teal-deep text-white shadow-[0_0_18px_-4px_rgba(0,224,184,0.5)]">
-              <Stethoscope className="h-5 w-5" />
-            </div>
+            <Logo wordmark={false} size={40} />
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-energy/80">
                 Centre Manager

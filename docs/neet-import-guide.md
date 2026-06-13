@@ -1,6 +1,6 @@
 # NEET Question Bank — Collection & Import Guide
 
-This guide is for building the **SynapTest global question bank** (the pool that
+This guide is for building the **DriveScore global question bank** (the pool that
 powers student lesson practice + full NEET mocks at `/practice`). Collect
 questions into one spreadsheet using the columns below, then an admin uploads it
 at **`/admin/bank` → Bulk import (CSV)**.

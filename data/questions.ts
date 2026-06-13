@@ -1,5 +1,5 @@
 /**
- * Seed question bank for SynapTest.
+ * Seed question bank for DriveScore.
  *
  * 18 original NEET-style questions (6 per subject, mixed difficulty), written
  * from standard NCERT Class 11–12 concepts. None are copied from any

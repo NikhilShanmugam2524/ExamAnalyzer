@@ -1,5 +1,5 @@
 /**
- * SynapTest GLOBAL Question Bank (platform super-admin).
+ * DriveScore GLOBAL Question Bank (platform super-admin).
  *
  * The platform-owned pool (centre_id NULL) that powers student self-practice:
  * lesson-by-lesson tests and the shuffled full NEET mock. Admin can bulk-import
@@ -51,7 +51,7 @@ export default async function AdminBankPage() {
             </div>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-energy/80">
-                SynapTest Global Bank
+                DriveScore Global Bank
               </p>
               <h1 className="font-display text-lg font-bold text-paper">
                 Question Bank

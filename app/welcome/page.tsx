@@ -1,5 +1,5 @@
 /**
- * SynapTest — public marketing landing page (`/welcome`).
+ * DriveScore — public marketing landing page (`/welcome`).
  *
  * A standalone, login-free sales page for coaching-centre owners (the buyers)
  * and parents (who must trust it). It is added to the middleware public
@@ -26,7 +26,6 @@ import {
   Hourglass,
   Mail,
   ShieldCheck,
-  Sparkles,
   Stethoscope,
   Users,
   CheckCircle2,
@@ -39,18 +38,19 @@ import { Reveal } from "@/components/landing/Reveal";
 import { Parallax } from "@/components/landing/Parallax";
 import { Neuro } from "@/components/mascot/Neuro";
 import { LoginForm } from "@/components/auth/LoginForm";
+import { Logo } from "@/components/brand/Logo";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "SynapTest — AI NEET mock analysis for coaching centres",
+  title: "DriveScore — AI NEET mock analysis for coaching centres",
   description:
-    "Auto-graded weekend NEET mocks with a diagnosis that explains WHY marks were lost — not just the score. Keep your faculty and brand; SynapTest is the AI brain underneath.",
+    "Auto-graded weekend NEET mocks with a diagnosis that explains WHY marks were lost — not just the score. Keep your faculty and brand; DriveScore is the AI brain underneath.",
 };
 
 // No backend needed — the primary action is a pre-filled email to the founder.
 const CONTACT =
-  "mailto:thigazhezhilanj007@gmail.com?subject=Bringing%20SynapTest%20to%20our%20coaching%20centre&body=Hi%2C%20I%20run%20a%20NEET%20coaching%20centre%20and%20I%27d%20like%20to%20learn%20more%20about%20SynapTest.%0A%0ACentre%20name%3A%0ACity%3A%0AApprox.%20students%3A%0A";
+  "mailto:thigazhezhilanj007@gmail.com?subject=Bringing%20DriveScore%20to%20our%20coaching%20centre&body=Hi%2C%20I%20run%20a%20NEET%20coaching%20centre%20and%20I%27d%20like%20to%20learn%20more%20about%20DriveScore.%0A%0ACentre%20name%3A%0ACity%3A%0AApprox.%20students%3A%0A";
 
 const DIAGNOSIS = [
   {
@@ -115,7 +115,7 @@ const REPORTS = [
 ];
 
 const CENTRE_POINTS = [
-  "Keep your faculty and your brand — SynapTest is the AI brain underneath, not a replacement.",
+  "Keep your faculty and your brand — DriveScore is the AI brain underneath, not a replacement.",
   "Save your teachers hours of manual grading every single weekend.",
   "Impress parents with professional, insightful reports — not just a number.",
   "Improve retention with progress that's visible and measurable.",
@@ -156,14 +156,7 @@ export default async function WelcomePage() {
         {/* ── Nav ── */}
         <header className="sticky top-0 z-30 border-b border-white/5 bg-[#06140f]/70 backdrop-blur-md">
           <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
-            <div className="flex items-center gap-2.5">
-              <div className="grid h-9 w-9 place-items-center rounded-xl bg-energy text-focusink shadow-[0_0_18px_-2px_rgba(0,224,184,0.6)]">
-                <Sparkles className="h-5 w-5" />
-              </div>
-              <span className="font-display text-lg font-extrabold tracking-tight">
-                Synap<span className="text-energy">Test</span>
-              </span>
-            </div>
+            <Logo size={36} wordmarkClassName="text-lg text-paper" />
             <div className="flex items-center gap-2">
               <a
                 href="#student-login"
@@ -222,7 +215,7 @@ export default async function WelcomePage() {
           <Reveal delay={0.28}>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
               <a href={CONTACT} className="btn-energy w-full sm:w-auto">
-                Bring SynapTest to your centre
+                Bring DriveScore to your centre
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a
@@ -269,8 +262,8 @@ export default async function WelcomePage() {
           </Reveal>
         </Section>
 
-        {/* ── What SynapTest does (the differentiator) ── */}
-        <Section eyebrow="What SynapTest does">
+        {/* ── What DriveScore does (the differentiator) ── */}
+        <Section eyebrow="What DriveScore does">
           <Reveal>
             <h2 className="max-w-3xl font-display text-3xl font-extrabold leading-tight sm:text-5xl">
               We don&apos;t just grade the mock.{" "}
@@ -281,7 +274,7 @@ export default async function WelcomePage() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-paper/70">
-              Using per-question timing and answers, SynapTest sorts every lost
+              Using per-question timing and answers, DriveScore sorts every lost
               mark into a clear cause — so a student (and their teacher) knows
               precisely what to work on next.
             </p>
@@ -360,7 +353,7 @@ export default async function WelcomePage() {
               </Reveal>
               <Reveal delay={0.18}>
                 <a href={CONTACT} className="btn-energy mt-8 w-full sm:w-auto">
-                  Bring SynapTest to your centre
+                  Bring DriveScore to your centre
                   <ArrowRight className="h-5 w-5" />
                 </a>
               </Reveal>
@@ -473,13 +466,13 @@ export default async function WelcomePage() {
                   Make every weekend mock count.
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-paper/70">
-                  Bring SynapTest to your coaching centre — keep your faculty and
+                  Bring DriveScore to your coaching centre — keep your faculty and
                   your brand, and give every student a diagnosis, not just a score.
                 </p>
                 <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <a href={CONTACT} className="btn-energy w-full sm:w-auto">
                     <Mail className="h-5 w-5" />
-                    Bring SynapTest to your centre
+                    Bring DriveScore to your centre
                   </a>
                   <a
                     href="#student-login"
@@ -535,17 +528,10 @@ export default async function WelcomePage() {
         <footer className="border-t border-white/5 px-5 py-10">
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
             <div className="flex items-center gap-2.5">
-              <div className="grid h-8 w-8 place-items-center rounded-lg bg-energy text-focusink">
-                <Sparkles className="h-4 w-4" />
-              </div>
-              <div>
-                <p className="font-display font-extrabold">
-                  Synap<span className="text-energy">Test</span>
-                </p>
-                <p className="text-xs text-paper/45">
-                  Built for NEET coaching centres.
-                </p>
-              </div>
+              <Logo size={32} wordmarkClassName="text-base text-paper" />
+              <p className="text-xs text-paper/45">
+                Built for coaching centres.
+              </p>
             </div>
             <div className="flex items-center gap-5 text-sm text-paper/60">
               <a href={CONTACT} className="inline-flex items-center gap-1.5 transition hover:text-paper">
@@ -557,7 +543,7 @@ export default async function WelcomePage() {
             </div>
           </div>
           <p className="mx-auto mt-6 max-w-6xl text-center text-xs text-paper/35 sm:text-left">
-            © {new Date().getFullYear()} SynapTest. Supervised weekend NEET mocks with per-student data privacy.
+            © {new Date().getFullYear()} DriveScore. Supervised weekend NEET mocks with per-student data privacy.
           </p>
         </footer>
       </div>

@@ -1,4 +1,4 @@
-# SynapTest Skill Rating & Levels — Design Spec (v1)
+# DriveScore Skill Rating & Levels — Design Spec (v1)
 
 **Status:** agreed in discussion, not yet built.
 **Goal:** a fair, persistent, motivating skill measure for every student — competition

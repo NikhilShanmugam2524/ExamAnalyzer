@@ -43,7 +43,7 @@ type SessionContextValue = SessionState & {
   reset: () => void;
 };
 
-const STORAGE_KEY = "synaptest.session.v1";
+const STORAGE_KEY = "DriveScore.session.v1";
 
 const SessionContext = createContext<SessionContextValue | null>(null);
 

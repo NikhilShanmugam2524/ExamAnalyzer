@@ -41,7 +41,7 @@ export function ParentView({ report }: { report: Report }) {
             S
           </div>
           <div className="flex-1">
-            <p className="text-sm font-semibold text-white">SynapTest</p>
+            <p className="text-sm font-semibold text-white">DriveScore</p>
             <p className="text-[11px] text-emerald-300/80">coaching updates</p>
           </div>
         </div>

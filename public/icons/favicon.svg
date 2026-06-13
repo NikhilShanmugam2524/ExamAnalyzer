@@ -1,0 +1,5 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" rx="28" fill="#00E0B8"/>
+  <path d="M40 40 L60 24 L80 40" fill="none" stroke="#06140f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="60" y="76" text-anchor="middle" fill="#06140f" font-family="Montserrat, Arial, Helvetica, sans-serif" font-weight="900" font-size="52" letter-spacing="-3">DS</text>
+</svg>

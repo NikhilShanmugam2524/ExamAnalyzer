@@ -20,13 +20,13 @@ import {
   LineChart,
   Lock,
   RotateCcw,
-  Sparkles,
   Timer,
 } from "lucide-react";
 import { LogoutButton } from "@/components/auth/LogoutButton";
 import { Neuro } from "@/components/mascot/Neuro";
 import { AuroraBackground } from "@/components/landing/AuroraBackground";
 import { LevelCard } from "@/components/home/LevelCard";
+import { Logo } from "@/components/brand/Logo";
 import type { RatingSummary } from "@/lib/db/ratings";
 
 type MockItem = {
@@ -57,14 +57,7 @@ export function HomeClient({
       <div className="relative z-10 mx-auto flex min-h-dvh w-full max-w-5xl flex-col px-5 pb-10 pt-7">
         {/* Brand + sign out */}
         <header className="animate-fade-up flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-energy text-focusink shadow-[0_0_18px_-2px_rgba(0,224,184,0.6)]">
-              <Sparkles className="h-5 w-5" />
-            </div>
-            <h1 className="font-display text-lg font-extrabold tracking-tight text-paper">
-              Synap<span className="text-energy">Test</span>
-            </h1>
-          </div>
+          <Logo size={40} wordmarkClassName="text-lg text-paper" />
           <LogoutButton dark />
         </header>
 

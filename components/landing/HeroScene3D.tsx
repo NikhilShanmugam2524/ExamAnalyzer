@@ -3,7 +3,7 @@
 /**
  * The WebGL hero scene (react-three-fiber) — lazy-loaded, `ssr: false`.
  *
- * THEMED to what SynapTest actually is — a NEET/JEE prep tool — built from
+ * THEMED to what DriveScore actually is — a NEET/JEE prep tool — built from
  * abstract, light-based scientific structures (not clip-art) drifting in 3D
  * depth, mint glow on deep ink with rare amber sparks:
  *
@@ -12,7 +12,7 @@
  *   • Molecules   — atom nodes joined by thin glowing bonds, each slowly
  *                   tumbling (chemistry).
  *   • NeuralNet   — scattered nodes wired by faint edges with amber sparks
- *                   travelling along them (the brain/synapse "SynapTest" theme).
+ *                   travelling along them (the brain/synapse "DriveScore" theme).
  *   • Orbitals    — large, very faint orbital ellipse lines (physics / JEE),
  *                   read as texture, not literal formulae.
  *   • Motes       — a light flowing particle field for cinematic continuity.

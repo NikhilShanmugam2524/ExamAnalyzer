@@ -21,6 +21,37 @@ import { getServiceClient } from "@/lib/db/client";
 
 export type SignupState = { error: string | null; sent: boolean };
 
+const ROLE_LABEL: Record<string, string> = {
+  admin: "an admin",
+  teacher: "a teacher",
+  student: "a student",
+};
+
+/**
+ * Look up the role already registered for an email (paginated auth admin
+ * lookup, same approach as scripts/seed.ts). Returns null if no account
+ * exists for that email.
+ */
+async function findRegisteredRole(
+  service: ReturnType<typeof getServiceClient>,
+  email: string,
+): Promise<string | null> {
+  for (let page = 1; ; page++) {
+    const { data, error } = await service.auth.admin.listUsers({ page, perPage: 1000 });
+    if (error) throw error;
+    const found = data.users.find((u) => u.email?.toLowerCase() === email.toLowerCase());
+    if (found) {
+      const { data: profile } = await service
+        .from("profiles")
+        .select("role")
+        .eq("id", found.id)
+        .maybeSingle();
+      return profile?.role ?? "student";
+    }
+    if (data.users.length < 1000) return null;
+  }
+}
+
 export async function signUpAccount(
   _prev: SignupState,
   formData: FormData,
@@ -70,7 +101,9 @@ export async function signUpAccount(
   });
   if (suErr) {
     if (/already.*regist|exists/i.test(suErr.message)) {
-      return { error: "An account already exists for that email. Try signing in.", sent: false };
+      const existingRole = await findRegisteredRole(service, email);
+      const as = existingRole ? ` as ${ROLE_LABEL[existingRole] ?? "a user"}` : "";
+      return { error: `That email is already registered${as}. Try signing in instead.`, sent: false };
     }
     return { error: suErr.message, sent: false };
   }
@@ -84,7 +117,17 @@ export async function signUpAccount(
     centre_id: centreId,
     full_name: fullName,
   });
-  if (pErr) return { error: pErr.message, sent: false };
+  if (pErr) {
+    // With "Confirm email" on, signUp() for an already-registered email
+    // returns an obfuscated user whose id has no row in auth.users — the
+    // profiles upsert above then fails its foreign-key check.
+    if (pErr.code === "23503") {
+      const existingRole = await findRegisteredRole(service, email);
+      const as = existingRole ? ` as ${ROLE_LABEL[existingRole] ?? "a user"}` : "";
+      return { error: `That email is already registered${as}. Try signing in instead.`, sent: false };
+    }
+    return { error: pErr.message, sent: false };
+  }
 
   if (role === "student") {
     // Link a students row (idempotent-ish: only insert if absent).

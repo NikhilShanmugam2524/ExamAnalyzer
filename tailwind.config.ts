@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 /**
- * SynapTest design tokens.
+ * DriveScore design tokens.
  *
  * The palette is a deliberate "calm clinical" direction:
  *  - `ink`   : deep teal-green, the trustworthy base (teacher / parent tone)

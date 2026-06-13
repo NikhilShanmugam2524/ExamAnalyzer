@@ -22,7 +22,7 @@ const service = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
 const admin = createClient(url, service, { auth: { persistSession: false } });
 
-const STUDENT2 = { email: "student2@synaptest.test", password: "Student2-Demo-2026" };
+const STUDENT2 = { email: "student2@DriveScore.test", password: "Student2-Demo-2026" };
 
 async function upsertAuthUser(email: string, password: string, fullName: string) {
   for (let page = 1; ; page++) {
@@ -61,10 +61,10 @@ async function main() {
   // Resolve the student1 row via the auth user so we get the one that is
   // actually linked to the login (handles duplicate seed runs gracefully).
   const { data: s1AuthList } = await admin.auth.admin.listUsers({ page: 1, perPage: 1000 });
-  const s1AuthUser = s1AuthList.users.find((u) => u.email?.toLowerCase() === "student@synaptest.test");
-  if (!s1AuthUser) throw new Error("student@synaptest.test auth user not found — run npm run db:seed first");
+  const s1AuthUser = s1AuthList.users.find((u) => u.email?.toLowerCase() === "student@DriveScore.test");
+  if (!s1AuthUser) throw new Error("student@DriveScore.test auth user not found — run npm run db:seed first");
   const { data: s1 } = await admin.from("students").select("id").eq("profile_id", s1AuthUser.id).limit(1).maybeSingle();
-  if (!s1) throw new Error("No students row linked to student@synaptest.test — run npm run db:seed first");
+  if (!s1) throw new Error("No students row linked to student@DriveScore.test — run npm run db:seed first");
 
   const { data: centre } = await admin.from("centres").select("id").eq("name", "Demo NEET Centre").limit(1).maybeSingle();
   const { data: batch } = await admin.from("batches").select("id").eq("name", "NEET-2026 Batch A").limit(1).maybeSingle();
@@ -97,7 +97,7 @@ async function main() {
     if (!cond) ok = false;
   };
 
-  const c1 = await authed("student@synaptest.test", "Student-Demo-2026");
+  const c1 = await authed("student@DriveScore.test", "Student-Demo-2026");
   check(((await c1.from("attempts").select("id").eq("id", attemptId)).data?.length ?? 0) === 1, "student #1 can read their OWN attempt");
   check(((await c1.from("questions").select("id").limit(5)).data?.length ?? 0) === 0, "student #1 canNOT read the questions table (answer keys locked)");
 
@@ -105,7 +105,7 @@ async function main() {
   check(((await c2.from("attempts").select("id").eq("id", attemptId)).data?.length ?? 0) === 0, "student #2 canNOT read student #1's attempt (DB-enforced isolation)");
   check(((await c2.from("answers").select("id").eq("attempt_id", attemptId)).data?.length ?? 0) === 0, "student #2 canNOT read student #1's answers");
 
-  const ct = await authed("teacher@synaptest.test", "Teacher-Demo-2026");
+  const ct = await authed("teacher@DriveScore.test", "Teacher-Demo-2026");
   check(((await ct.from("attempts").select("id").eq("id", attemptId)).data?.length ?? 0) === 1, "teacher CAN read their batch student's attempt");
   check(((await ct.from("questions").select("id").limit(5)).data?.length ?? 0) === 0, "teacher canNOT read the questions table");
 

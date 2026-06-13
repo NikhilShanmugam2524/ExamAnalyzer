@@ -1,14 +1,14 @@
 {
-  "name": "SynapTest — NEET Mock & Diagnosis",
-  "short_name": "SynapTest",
-  "description": "Weekend NEET mock tests with a diagnosis engine that explains why marks were lost.",
+  "name": "DriveScore — Mock Tests & Diagnosis",
+  "short_name": "DriveScore",
+  "description": "Mock tests with a diagnosis engine that explains why marks were lost — not just the score.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#f6f8f7",
-  "theme_color": "#0d9488",
-  "categories": ["education", "medical"],
+  "background_color": "#06140f",
+  "theme_color": "#06140f",
+  "categories": ["education"],
   "icons": [
     {
       "src": "/icons/icon-192.png",

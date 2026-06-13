@@ -1,7 +1,7 @@
 /**
  * Teacher — Practice activity (Stage 4).
  *
- * Shows recent SynapTest self-practice attempts (lesson tests + full mocks) by
+ * Shows recent DriveScore self-practice attempts (lesson tests + full mocks) by
  * the centre's students, with score + a link to each diagnosis report. Data
  * access is granted by the attempts/answers teacher RLS; the practice mocks have
  * centre_id NULL so the data layer reads via the service client and scopes to
@@ -55,7 +55,7 @@ export default async function TeacherPracticePage() {
             </div>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-energy/80">
-                SynapTest Practice
+                DriveScore Practice
               </p>
               <h1 className="font-display text-lg font-bold text-paper">
                 Practice activity
@@ -68,7 +68,7 @@ export default async function TeacherPracticePage() {
         </header>
 
         <p className="animate-fade-up mt-3 text-sm text-paper/55">
-          Self-practice your students did on the SynapTest bank — lesson tests and
+          Self-practice your students did on the DriveScore bank — lesson tests and
           full NEET mocks. Open any report to see their diagnosis.
         </p>
 
@@ -76,7 +76,7 @@ export default async function TeacherPracticePage() {
           {activity.length === 0 ? (
             <div className="card-glass p-5 text-sm text-paper/60">
               No practice attempts yet. When your students practise lessons or take
-              a full mock from SynapTest, their results show up here.
+              a full mock from DriveScore, their results show up here.
             </div>
           ) : (
             <div className="card-glass divide-y divide-white/[0.06]">

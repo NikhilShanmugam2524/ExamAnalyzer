@@ -1,5 +1,5 @@
 /**
- * The Diagnosis Engine — the core differentiator of SynapTest.
+ * The Diagnosis Engine — the core differentiator of DriveScore.
  *
  * Pure, deterministic logic over (score + per-question time). No AI/LLM.
  * This module is intentionally dependency-free and isolated so it stays

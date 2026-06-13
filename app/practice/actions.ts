@@ -3,7 +3,7 @@
 /**
  * Student self-practice server actions.
  *
- * Generate a personal mock from the SynapTest global pool, then redirect into
+ * Generate a personal mock from the DriveScore global pool, then redirect into
  * the existing test flow (`/test?mock=<id>`). The student id is derived from the
  * session server-side — never trusted from the client.
  */

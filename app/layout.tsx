@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
+import { Space_Grotesk, Inter, Bricolage_Grotesque, Hanken_Grotesk, Montserrat } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "@/lib/session";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
@@ -32,24 +32,36 @@ const studentBody = Hanken_Grotesk({
   display: "swap",
 });
 
+// Brand font — used only by the DriveScore logo (mark + wordmark) so the
+// identity stays consistent regardless of the surrounding page typography.
+const brand = Montserrat({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-brand",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "SynapTest — NEET mock tests that explain why",
+  title: "DriveScore — mock tests that explain why",
   description:
-    "Weekend NEET mock tests with a diagnosis engine that explains why marks were lost — in student, teacher and parent views.",
+    "Mock tests with a diagnosis engine that explains why marks were lost — not just the score. Student, teacher and parent views.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "SynapTest",
+    title: "DriveScore",
   },
   icons: {
-    icon: "/icons/icon-192.png",
-    apple: "/icons/icon-192.png",
+    icon: [
+      { url: "/icons/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: "/icons/apple-icon-180.png",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d9488",
+  themeColor: "#06140f",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -64,7 +76,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${studentDisplay.variable} ${studentBody.variable}`}
+      className={`${display.variable} ${body.variable} ${studentDisplay.variable} ${studentBody.variable} ${brand.variable}`}
     >
       <body>
         <SessionProvider>{children}</SessionProvider>

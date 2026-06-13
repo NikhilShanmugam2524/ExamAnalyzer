@@ -1,7 +1,7 @@
 "use server";
 
 /**
- * SynapTest GLOBAL question-bank server actions (platform super-admin).
+ * DriveScore GLOBAL question-bank server actions (platform super-admin).
  *
  * Guarded by `requireRole("admin")`. Every question written here has
  * `centre_id = NULL` (global / platform-owned) — set server-side in the data

@@ -1,5 +1,5 @@
 /*
- * SynapTest service worker.
+ * DriveScore service worker.
  *
  * A small, dependency-free SW that makes the app installable and usable
  * offline. Strategy:
@@ -10,7 +10,7 @@
  * Bump CACHE_VERSION to force clients onto a new cache.
  */
 
-const CACHE_VERSION = "synaptest-v1";
+const CACHE_VERSION = "DriveScore-v1";
 const APP_SHELL = [
   "/",
   "/test",

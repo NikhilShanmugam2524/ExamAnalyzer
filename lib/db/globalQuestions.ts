@@ -1,9 +1,9 @@
 import "server-only";
 
 /**
- * SynapTest GLOBAL question-bank data access.
+ * DriveScore GLOBAL question-bank data access.
  *
- * "Global" = questions with `centre_id IS NULL` — owned by the SynapTest
+ * "Global" = questions with `centre_id IS NULL` — owned by the DriveScore
  * platform (not any institute). Only the platform super-admin manages these,
  * through the USER-SCOPED client: the 0006 admin question policies grant an
  * `auth_role()='admin'` caller full CRUD with NO centre check, so a NULL

@@ -1,4 +1,4 @@
-# SynapTest
+# DriveScore
 
 **AI-powered NEET mock-test diagnosis platform for coaching centres.**
 
@@ -58,7 +58,7 @@ TestRunner (client)            ReportTabs (client)
 
 | Role | Who | Access |
 |---|---|---|
-| **admin** | SynapTest platform owner. `centre_id = NULL`. One account. | **Cross-centre super-admin:** sees ALL centres, creates new centres + teacher accounts, can view any centre's data. |
+| **admin** | DriveScore platform owner. `centre_id = NULL`. One account. | **Cross-centre super-admin:** sees ALL centres, creates new centres + teacher accounts, can view any centre's data. |
 | **teacher** | A coaching centre's manager. One per centre. | **Own centre only:** manages question bank, builds/publishes mocks, creates student accounts, views all reports for their centre. |
 | **student** | A student at a centre. | Takes published mocks for their batch, sees their own diagnosis reports. |
 
@@ -281,7 +281,7 @@ app/
 ### 1. Clone & install
 ```bash
 git clone <repo-url>
-cd synaptest
+cd DriveScore
 npm install
 ```
 
@@ -292,11 +292,11 @@ NEXT_PUBLIC_SUPABASE_URL=<your Supabase project URL>
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<your anon/publishable key>
 SUPABASE_SERVICE_ROLE_KEY=<your service_role/secret key — NEVER commit>
 
-SEED_ADMIN_EMAIL=admin@synaptest.test
+SEED_ADMIN_EMAIL=admin@DriveScore.test
 SEED_ADMIN_PASSWORD=<your choice>
-SEED_TEACHER_EMAIL=teacher@synaptest.test
+SEED_TEACHER_EMAIL=teacher@DriveScore.test
 SEED_TEACHER_PASSWORD=<your choice>
-SEED_STUDENT_EMAIL=student@synaptest.test
+SEED_STUDENT_EMAIL=student@DriveScore.test
 SEED_STUDENT_PASSWORD=<your choice>
 ```
 
@@ -326,7 +326,7 @@ npm run dev    # → http://localhost:3000
 
 **Key competitors:** VVT Coaching (claims AI but delivers dashboards), Spiro, Jupiter, Shankar Medico, the Namakkal cluster. National giants (Allen, Aakash) build in-house.
 
-**SynapTest's edge:** the diagnosis depth (5-category "why," not just "what"), the three-audience reports (student/teacher/parent), and a B2B model that arms centres rather than competing with them.
+**DriveScore's edge:** the diagnosis depth (5-category "why," not just "what"), the three-audience reports (student/teacher/parent), and a B2B model that arms centres rather than competing with them.
 
 **Pitch:** "You keep your faculty and your brand. We're the AI brain underneath."
 

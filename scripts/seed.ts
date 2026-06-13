@@ -1,5 +1,5 @@
 /**
- * Seed the SynapTest database from the existing reference data.
+ * Seed the DriveScore database from the existing reference data.
  *
  * Reuses `data/questions.ts` as the single source of truth so the DB matches
  * what the app shipped with: one demo centre + batch + students, all 18
@@ -104,7 +104,7 @@ function seedCreds(prefix: string): { email: string; password: string } | null {
 }
 
 async function main() {
-  console.log("Seeding SynapTest…\n");
+  console.log("Seeding DriveScore…\n");
 
   // 1. Clean slate — remove any prior demo centre (cascades to everything).
   const { data: existing } = await supabase

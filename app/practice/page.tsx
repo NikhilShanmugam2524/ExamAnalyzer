@@ -1,7 +1,7 @@
 /**
  * Student self-practice hub (`/practice`).
  *
- * Two SynapTest-provided pathways over the global question pool:
+ * Two DriveScore-provided pathways over the global question pool:
  *   1. Full NEET Mock  — shuffled 45 Phy + 45 Chem + 90 Bio, fresh each time.
  *   2. Lesson practice — pick a subject → chapter → focused test.
  *
@@ -94,7 +94,7 @@ export default async function PracticePage({
             </div>
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-energy/80">
-                SynapTest Practice
+                DriveScore Practice
               </p>
               <h1 className="font-display text-lg font-extrabold text-paper">
                 Sharpen your prep
@@ -168,7 +168,7 @@ export default async function PracticePage({
             <div className="card-glass p-5 text-sm text-paper/60">
               {track === "ai"
                 ? "No AI questions yet. Once generated, an adaptive easy→hard set appears here per chapter."
-                : "The SynapTest question bank is being prepared — lesson practice will appear here soon."}
+                : "The DriveScore question bank is being prepared — lesson practice will appear here soon."}
             </div>
           ) : (
             <div className="grid gap-3">

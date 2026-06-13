@@ -1,7 +1,7 @@
 /**
  * Platform Super-Admin Dashboard.
  *
- * Admin = the SynapTest platform owner. No centre_id. Cross-centre god-mode:
+ * Admin = the DriveScore platform owner. No centre_id. Cross-centre god-mode:
  * sees all centres, can create new centres and their teacher accounts.
  */
 
@@ -13,6 +13,7 @@ import { listAllCentres } from "@/lib/db/admin";
 import { LogoutButton } from "@/components/auth/LogoutButton";
 import { LoginForm } from "@/components/auth/LoginForm";
 import { AuroraBackground } from "@/components/landing/AuroraBackground";
+import { Logo } from "@/components/brand/Logo";
 
 export const dynamic = "force-dynamic";
 
@@ -25,15 +26,10 @@ export default async function AdminPage() {
       <main className="landing-skin relative flex min-h-dvh flex-col items-center justify-center bg-[#06140f] px-5 py-10">
         <AuroraBackground />
         <div className="relative z-10 w-full max-w-sm">
-          <div className="mb-8 flex items-center gap-3">
-            <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white/10 text-paper shadow-[0_0_20px_-4px_rgba(255,255,255,0.15)] ring-1 ring-white/20">
-              <Shield className="h-6 w-6" />
-            </div>
-            <div>
-              <h1 className="font-display text-xl font-bold tracking-tight text-paper">
-                SynapTest Admin
-              </h1>
-              <p className="text-xs font-medium text-paper/50">Restricted access</p>
+          <div className="mb-8">
+            <Logo size={44} wordmarkClassName="text-2xl text-paper" />
+            <div className="mt-3 flex items-center gap-1.5 text-xs font-medium text-paper/50">
+              <Shield className="h-3.5 w-3.5" /> Admin · restricted access
             </div>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-1 backdrop-blur-sm">
@@ -66,12 +62,10 @@ export default async function AdminPage() {
       <div className="relative z-10 mx-auto max-w-4xl px-5 pb-10 pt-6">
         <header className="animate-fade-up flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/10 text-paper ring-1 ring-white/20">
-              <Shield className="h-5 w-5" />
-            </div>
+            <Logo wordmark={false} size={40} />
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-energy/80">
-                SynapTest Platform
+                DriveScore Platform
               </p>
               <h1 className="font-display text-lg font-bold text-paper">Super Admin</h1>
             </div>
@@ -127,7 +121,7 @@ export default async function AdminPage() {
             <div className="min-w-0 flex-1">
               <p className="font-display font-semibold text-paper">Global question bank</p>
               <p className="text-xs text-paper/55">
-                SynapTest pool for student lesson practice &amp; full mocks
+                DriveScore pool for student lesson practice &amp; full mocks
               </p>
             </div>
             <ChevronRight className="h-4 w-4 shrink-0 text-paper/30" />
@@ -171,6 +165,16 @@ export default async function AdminPage() {
                       )}
                     </p>
                   </div>
+                  {c.joinCode && (
+                    <div className="shrink-0 rounded-lg bg-white/[0.06] px-2.5 py-1 text-center">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-paper/40">
+                        Join code
+                      </p>
+                      <p className="font-mono text-sm font-bold tracking-widest text-energy">
+                        {c.joinCode}
+                      </p>
+                    </div>
+                  )}
                   <ChevronRight className="h-4 w-4 shrink-0 text-paper/30" />
                 </Link>
               ))}

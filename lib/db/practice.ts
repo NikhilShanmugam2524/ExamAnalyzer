@@ -3,7 +3,7 @@ import "server-only";
 /**
  * Student self-practice generation (Stage 2 + 3).
  *
- * Turns the SynapTest GLOBAL pool (questions with centre_id IS NULL) into two
+ * Turns the DriveScore GLOBAL pool (questions with centre_id IS NULL) into two
  * student pathways:
  *   1. Lesson practice — a focused test on one subject + chapter.
  *   2. Full NEET mock  — a shuffled 180-Q paper (45 Phy + 45 Chem + 90 Bio).
@@ -295,7 +295,7 @@ export type PracticeActivityRow = {
 };
 
 /**
- * Recent SynapTest self-practice attempts (lesson + full mock) by the students
+ * Recent DriveScore self-practice attempts (lesson + full mock) by the students
  * of one centre — for the teacher's "Practice activity" view.
  *
  * Scoped to the centre's own students. The attempts/answers teacher RLS already

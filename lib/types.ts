@@ -1,5 +1,5 @@
 /**
- * Shared domain types for SynapTest.
+ * Shared domain types for DriveScore.
  *
  * These mirror the spec exactly so the seed data, the test session and the
  * Diagnosis Engine all speak the same language.

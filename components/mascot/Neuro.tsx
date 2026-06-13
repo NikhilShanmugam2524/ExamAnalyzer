@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * "Neuro" — SynapTest's original mascot.
+ * "Neuro" — DriveScore's original mascot.
  *
  * An upbeat neuron / brain-cell study coach (ties to the synapse theme): a
  * softly-glowing rounded cell body for a face, dendrite "arms" that gesture, a
@@ -28,10 +28,10 @@ import { motion, useReducedMotion } from "framer-motion";
 export type NeuroMood = "welcome" | "cheer" | "encourage" | "thinking";
 
 const ARIA: Record<NeuroMood, string> = {
-  welcome: "Neuro, the SynapTest study buddy, waving hello",
-  cheer: "Neuro, the SynapTest study buddy, cheering",
-  encourage: "Neuro, the SynapTest study buddy, giving an encouraging thumbs-up",
-  thinking: "Neuro, the SynapTest study buddy, thinking",
+  welcome: "Neuro, the DriveScore study buddy, waving hello",
+  cheer: "Neuro, the DriveScore study buddy, cheering",
+  encourage: "Neuro, the DriveScore study buddy, giving an encouraging thumbs-up",
+  thinking: "Neuro, the DriveScore study buddy, thinking",
 };
 
 const INK = "#0A1F1C";
