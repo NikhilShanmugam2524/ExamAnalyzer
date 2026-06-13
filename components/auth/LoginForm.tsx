@@ -1,6 +1,7 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
+import Link from "next/link";
 import { BrainCircuit, LogIn, Loader2, Lock, Mail } from "lucide-react";
 import { login, type LoginState } from "@/app/login/actions";
 
@@ -69,6 +70,14 @@ export function LoginFormBody({ state, formAction }: {
             placeholder="••••••••"
             className="w-full rounded-xl border border-black/10 bg-white py-3 pl-10 pr-3 text-sm text-ink outline-none transition focus:border-teal focus:ring-2 focus:ring-teal/30"
           />
+        </div>
+        <div className="mt-1.5 text-right">
+          <Link
+            href="/forgot-password"
+            className="text-xs font-semibold text-teal-deep hover:underline"
+          >
+            Forgot password?
+          </Link>
         </div>
       </div>
 
