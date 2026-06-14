@@ -54,22 +54,34 @@ export async function getStudentProgress(
 ): Promise<StudentProgress> {
   const supabase = createSupabaseServerClient(); // RLS: student reads own rows
 
-  // Submitted attempts, oldest first (the timeline spine).
-  const { data: attemptRows, error: aErr } = await supabase
-    .from("attempts")
-    .select("id, mock_id, submitted_at, total_marks, max_marks")
-    .eq("student_id", studentId)
-    .not("submitted_at", "is", null)
-    .order("submitted_at", { ascending: true });
+  // Submitted attempts, rating deltas, and chapter standings are independent
+  // of each other — fetch them concurrently rather than one round trip at a
+  // time (each round trip to Supabase costs ~150-300ms, so four sequential
+  // queries on this force-dynamic page added up to a very visible delay).
+  const [
+    { data: attemptRows, error: aErr },
+    { data: eventRows, error: eErr },
+    { data: chapterRows, error: cErr },
+  ] = await Promise.all([
+    supabase
+      .from("attempts")
+      .select("id, mock_id, submitted_at, total_marks, max_marks")
+      .eq("student_id", studentId)
+      .not("submitted_at", "is", null)
+      .order("submitted_at", { ascending: true }),
+    supabase
+      .from("rating_events")
+      .select("attempt_id, subject, delta")
+      .eq("student_id", studentId),
+    supabase
+      .from("student_chapter_ratings")
+      .select("subject, chapter, rating, level")
+      .eq("student_id", studentId),
+  ]);
   if (aErr) throw aErr;
-  const attempts = attemptRows ?? [];
-
-  // All rating deltas for this student, grouped by attempt + subject.
-  const { data: eventRows, error: eErr } = await supabase
-    .from("rating_events")
-    .select("attempt_id, subject, delta")
-    .eq("student_id", studentId);
   if (eErr) throw eErr;
+  if (cErr) throw cErr;
+  const attempts = attemptRows ?? [];
 
   // attemptId → subject → summed delta; attemptId → total delta.
   const byAttempt = new Map<string, Map<Subject, number>>();
@@ -127,11 +139,6 @@ export async function getStudentProgress(
   }));
 
   // Chapter standings — strongest + weakest lessons.
-  const { data: chapterRows, error: cErr } = await supabase
-    .from("student_chapter_ratings")
-    .select("subject, chapter, rating, level")
-    .eq("student_id", studentId);
-  if (cErr) throw cErr;
   const chapters: ChapterStanding[] = (chapterRows ?? []).map((r) => ({
     subject: r.subject as Subject,
     chapter: r.chapter as string,
